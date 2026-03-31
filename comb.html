@@ -706,7 +706,7 @@
             document.getElementById('sol_desc').innerHTML = descHtml;
 
             // Langkah Perbaikan
-            document.getElementById('sol_steps').innerHTML = data.solutions.map(s => `<li style="margin-bottom:8px">${s}</li>`).join('');
+            document.getElementById('sol_steps').innerHTML = data.solutions.map(s => `<li style="margin-bottom:8px; font-size:14px; margin-left:15px">${s}</li>`).join('');
 
             // Komponen/Suku Cadang
             document.getElementById('sol_parts').innerHTML = data.parts.map(p => `<li>${p}</li>`).join('');
