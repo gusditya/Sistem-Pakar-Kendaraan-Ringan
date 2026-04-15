@@ -9,35 +9,29 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
-        /* RESET DASAR */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8fafc;
-            /* Abu-abu sangat muda */
             color: #070421;
-            /* Navy Gelap */
-            line-height: 1.6;
+            line-height: 1.6
         }
 
-        /* HEADER */
         header {
             background-color: #070421;
-            /* Navy */
             height: 70px;
-            border-bottom: 5px solid #dd9a00;
-            /* Emas */
+            border-bottom: 2px solid #dd9a00;
             display: flex;
             align-items: center;
             justify-content: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 100
         }
 
         .header-content {
@@ -45,24 +39,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px
         }
 
         .logo {
             font-family: 'Merriweather', serif;
             color: white;
-            font-size: 22px;
+            font-size: 22px
         }
 
         .expert {
-            color: #dd9a00;
-            /* Emas */
+            color: #dd9a00
         }
 
         .pro {
             color: rgb(132, 132, 132);
             font-size: 15px;
-            font-weight: 700;
-            border-radius: 12px;
+            font-weight: 700
         }
 
         .reset-btn {
@@ -70,36 +63,150 @@
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
+            transition: .3s
         }
 
         .reset-btn:hover {
-            color: #dd9a00;
-            opacity: 1;
+            color: #dd9a00
         }
 
-        /* CONTAINER UTAMA */
+        .nav-tabs {
+            background: rgba(7, 4, 33, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 70px;
+            z-index: 99;
+            overflow-x: auto;
+            gap: 12px;
+            padding: 12px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15)
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tabs button {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all .3s ease;
+            position: relative;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+            flex-shrink: 0
+        }
+
+        .nav-tabs button:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15)
+        }
+
+        .nav-tabs button.active {
+            color: #070421;
+            font-weight: 600;
+            background: #dd9a00;
+            border-color: #dd9a00;
+            box-shadow: 0 6px 15px rgba(221, 154, 0, 0.35);
+            transform: translateY(-2px)
+        }
+
+        .kamus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px
+        }
+
+        .kamus-card {
+            background: white;
+            border-left: 4px solid #070421;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            transition: .3s
+        }
+
+        .kamus-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-left-color: #dd9a00
+        }
+
+        .kamus-card h4 {
+            color: #070421;
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-family: 'Merriweather', serif
+        }
+
+        .kamus-card p {
+            color: #4d4d4d;
+            font-size: 13.5px;
+            line-height: 1.6
+        }
+
         .container {
             max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 0 20px
         }
 
-        .hero-text {
+        .tab-page {
+            display: none;
+            padding: 100px 0 80px;
+            animation: fadeUp .5s ease
+        }
+
+        .tab-page.active {
+            display: block
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 40px
         }
 
-        .hero-text h2 {
+        .hero h2 {
             font-family: 'Merriweather', serif;
             font-size: 28px;
-            margin-bottom: 10px;
+            margin-bottom: 10px
         }
 
-        .hero-text p {
+        .hero p {
             color: #4d4d4d;
             font-size: 15px;
-            width: 800px;
+            max-width: 800px;
+            margin: 0 auto
+        }
+
+        .hero-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: block
         }
 
         .card {
@@ -107,7 +214,7 @@
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 30px
         }
 
         .card-header {
@@ -116,36 +223,40 @@
             color: white;
             padding: 20px 30px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 18px
         }
 
         .card-body {
-            padding: 30px;
+            padding: 30px
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 25px
         }
 
         .form-group label {
             display: block;
             font-weight: 600;
             font-size: 14px;
-            margin-bottom: 5px;
+            margin-bottom: 5px
         }
 
         select {
             width: 100%;
             padding: 12px;
-            border: 1.5px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-family: inherit;
             color: #4d4d4d;
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
+            background: #f8fafc
         }
 
-        /* BAGIAN BREBET (GRID 2 KOLOM) */
+        select:focus {
+            outline: none;
+            border-color: #dd9a00;
+            box-shadow: 0 0 0 3px rgba(221, 154, 0, 0.1)
+        }
+
         .flex-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -153,7 +264,7 @@
             background: #f1f5f9;
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 25px
         }
 
         input[type="range"] {
@@ -162,16 +273,15 @@
             height: 6px;
             background: #e2e8f0;
             border-radius: 5px;
-            outline: none;
+            outline: none
         }
 
         input[type="range"]::-webkit-slider-runnable-track {
             height: 10px;
             background: #cad5e2;
-            border-radius: 5px;
+            border-radius: 5px
         }
 
-        /* thumb (bulatan) */
         input[type="range"]::-webkit-slider-thumb {
             appearance: none;
             width: 20px;
@@ -179,10 +289,9 @@
             background: #070421;
             border-radius: 50%;
             cursor: pointer;
-            margin-top: -6px;
+            margin-top: -6px
         }
 
-        /* TOMBOL ANALISIS */
         .btn-analyze {
             width: 100%;
             padding: 18px;
@@ -192,21 +301,20 @@
             border-radius: 8px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
+            transition: .3s;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1px
         }
 
         .btn-analyze:hover {
             background: #dd9a00;
-            transform: translateY(-2px);
+            transform: translateY(-2px)
         }
 
-        /* TAMPILAN HASIL (DIBAWAH FORM) */
         #resultSection {
             display: none;
             margin-top: 50px;
-            padding-bottom: 80px;
+            padding-bottom: 80px
         }
 
         .section-title {
@@ -214,13 +322,13 @@
             font-size: 24px;
             margin-bottom: 25px;
             border-left: 5px solid #dd9a00;
-            padding-left: 15px;
+            padding-left: 15px
         }
 
         .results-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+            gap: 20px
         }
 
         .result-card {
@@ -228,38 +336,37 @@
             padding: 25px;
             border-radius: 12px;
             border: 1px solid #e2e8f0;
-            transition: 0.3s;
+            transition: .3s
         }
 
         .result-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05)
         }
 
         .result-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 15px
         }
 
         .result-info h4 {
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 700
         }
 
-        /* PROGRESS BAR */
         .progress-bar {
             width: 100%;
             height: 10px;
             background: #e2e8f0;
             border-radius: 5px;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
 
         .progress-fill {
             height: 100%;
-            transition: width 1s ease-in-out;
+            transition: width 1s ease-in-out
         }
 
         .btn-detail {
@@ -271,26 +378,27 @@
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;
+            font-family: inherit;
+            transition: .3s
         }
 
         .btn-detail:hover {
             background: #070421;
-            color: white;
+            color: white
         }
 
-        /* HALAMAN DETAIL SOLUSI (VIEW BARU) */
         #solutionView {
             display: none;
             background: white;
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            overflow: hidden
         }
 
         .sol-header {
             background: #070421;
             color: white;
-            padding: 40px;
+            padding: 40px
         }
 
         .back-link {
@@ -299,7 +407,7 @@
             font-size: 14px;
             margin-bottom: 20px;
             display: inline-block;
-            font-weight: bold;
+            font-weight: bold
         }
 
         .severity-badge {
@@ -310,68 +418,495 @@
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 15px;
-            color: white;
+            color: white
         }
 
         .sol-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            padding: 40px;
+            padding: 40px
         }
 
         .sol-main h3 {
             font-size: 18px;
             margin-bottom: 15px;
             border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 10px;
+            padding-bottom: 10px
         }
 
-        .sol-main p {
+        .sol-main p,
+        .sol-main li {
             color: #4d4d4d;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 8px
         }
 
         .sol-sidebar {
             background: #f8fafc;
             padding: 25px;
             border-radius: 12px;
-            height: fit-content;
+            height: fit-content
         }
 
         .sol-sidebar h4 {
             margin-bottom: 15px;
-            font-size: 16px;
+            font-size: 16px
         }
 
         .sol-sidebar ul {
-            list-style: none;
+            list-style: none
         }
 
         .sol-sidebar li {
             padding: 8px 0;
             border-bottom: 1px solid #e2e8f0;
             font-size: 13px;
-            color: #4d4d4d;
+            color: #4d4d4d
         }
 
         .warning-box {
             background: #fee2e2;
             border-left: 4px solid #ef4444;
-            /* Merah */
             padding: 20px;
             border-radius: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 30px
         }
 
         .warning-box h4 {
             color: #991b1b;
-            font-size: 15px;
+            font-size: 15px
+        }
+
+        .warning-box p {
+            color: #991b1b;
+            font-size: 13px
         }
 
         .hidden {
+            display: none
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px
+        }
+
+        .guide-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .guide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #dd9a00;
+            opacity: 0;
+            transition: .3s
+        }
+
+        .guide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08)
+        }
+
+        .guide-card:hover::before {
+            opacity: 1
+        }
+
+        .guide-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block
+        }
+
+        .guide-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px
+        }
+
+        .guide-card p {
+            font-size: 13px;
+            color: #4d4d4d;
+            margin-bottom: 14px;
+            line-height: 1.6
+        }
+
+        .guide-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .meta-tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600
+        }
+
+        .meta-easy {
+            background: #dcfce7;
+            color: #16a34a
+        }
+
+        .meta-medium {
+            background: #fef3c7;
+            color: #d97706
+        }
+
+        .meta-hard {
+            background: #fee2e2;
+            color: #dc2626
+        }
+
+        .meta-time {
+            background: #dbeafe;
+            color: #2563eb
+        }
+
+        .guide-detail {
             display: none;
+            animation: fadeUp .4s ease
+        }
+
+        .guide-detail.active {
+            display: block
+        }
+
+        .guide-detail-header {
+            background: #070421;
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            color: white
+        }
+
+        .guide-detail-header h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 22px;
+            color: white;
+            margin-bottom: 8px
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px
+        }
+
+        .tool-chip {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8)
+        }
+
+        .step-list {
+            counter-reset: step
+        }
+
+        .step-item {
+            counter-increment: step;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 22px 22px 22px 70px;
+            margin-bottom: 14px;
+            position: relative;
+            transition: .3s
+        }
+
+        .step-item:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            border-color: #dd9a00
+        }
+
+        .step-item::before {
+            content: counter(step);
+            position: absolute;
+            left: 18px;
+            top: 20px;
+            width: 36px;
+            height: 36px;
+            background: #070421;
+            color: #dd9a00;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px
+        }
+
+        .step-item h4 {
+            font-size: 15px;
+            margin-bottom: 5px
+        }
+
+        .step-item p {
+            font-size: 13px;
+            color: #4d4d4d
+        }
+
+        .safety-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 24px
+        }
+
+        .safety-box h4 {
+            color: #92400e;
+            margin-bottom: 6px;
+            font-size: 14px
+        }
+
+        .safety-box p,
+        .safety-box li {
+            color: #78350f;
+            font-size: 13px
+        }
+
+        .back-btn {
+            background: none;
+            border: 1.5px solid #cbd5e1;
+            color: #070421;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 13px;
+            transition: .3s;
+            margin-bottom: 24px
+        }
+
+        .back-btn:hover {
+            background: #070421;
+            color: white
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #dd9a00, #070421)
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 3px solid #dd9a00;
+            background: #f8fafc
+        }
+
+        .timeline-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: .3s
+        }
+
+        .timeline-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transform: translateX(4px)
+        }
+
+        .timeline-card h3 {
+            font-size: 16px;
+            margin-bottom: 4px
+        }
+
+        .timeline-card .km-badge {
+            font-size: 12px;
+            color: white;
+            background: #dd9a00;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .timeline-card li {
+            font-size: 13px;
+            color: #4d4d4d;
+            padding: 5px 0;
+            padding-left: 18px;
+            position: relative
+        }
+
+        .timeline-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: 700
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px
+        }
+
+        .tip-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: .3s
+        }
+
+        .tip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06)
+        }
+
+        .tip-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block
+        }
+
+        .tip-card h3 {
+            font-size: 15px;
+            margin-bottom: 8px
+        }
+
+        .tip-card p {
+            font-size: 13px;
+            color: #4d4d4d;
+            line-height: 1.7
+        }
+
+        .tip-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px
+        }
+
+        .tip-card li {
+            font-size: 13px;
+            color: #4d4d4d;
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative
+        }
+
+        .tip-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #dd9a00
+        }
+
+        footer {
+            background: #070421;
+            border-top: 4px solid #dd9a00;
+            padding: 35px 24px;
+            text-align: center
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            margin-bottom: 6px
+        }
+
+        footer .disclaimer {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.35);
+            max-width: 600px;
+            margin: 12px auto 0
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @media(max-width:768px) {
+            .sol-grid {
+                grid-template-columns: 1fr
+            }
+
+            .flex-group {
+                grid-template-columns: 1fr
+            }
+
+            .hero h2 {
+                font-size: 22px
+            }
+
+            .nav-tabs {
+                justify-content: flex-start
+            }
+
+            .nav-tabs button {
+                padding: 10px 18px;
+                font-size: 12.5px
+            }
+
+            .guides-grid,
+            .tips-grid,
+            .results-grid {
+                grid-template-columns: 1fr
+            }
+
+            .step-item {
+                padding-left: 58px
+            }
+
+            .header-content {
+                width: 100%
+            }
         }
     </style>
 </head>
@@ -383,230 +918,165 @@
             <div class="reset-btn" onclick="location.reload()">RESET DIAGNOSIS</div>
         </div>
     </header>
-
+    <nav class="nav-tabs">
+        <button class="active" onclick="switchTab('diagnosis')">🔍 Diagnosis</button>
+        <button onclick="switchTab('panduan')">🔧 Panduan</button>
+        <button onclick="switchTab('perawatan')">📅 Jadwal</button>
+        <button onclick="switchTab('tips')">💡 Tips & Fakta</button>
+        <button onclick="switchTab('edukasi')">📚 Kamus Istilah</button>
+    </nav>
     <main class="container">
-        <!-- TAMPILAN FORM UTAMA -->
-        <div id="mainView">
-            <div class="hero-text">
-                <h2>Sistem Diagnosis Kendaraan Ringan</h2>
-                <p>Jawab pertanyaan teknis di bawah ini dengan akurat. Mesin inferensi kami akan menganalisis gejala,
-                    menghitung persentase kerusakan, dan mengkategorikan tingkat keparahan (Ringan, Sedang, Berat)
-                    berdasarkan data mekanika standar.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">Data Observasi Kendaraan</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>1. Observasi Asap Knalpot (Emisi Gas Buang):</label>
-                        <select id="q_asap">
-                            <option value="normal">Normal (Transparan / Tidak ada asap tebal)</option>
-                            <option value="putih_dingin">Asap Putih tipis hanya saat mesin dingin (Pagi hari)</option>
-                            <option value="putih_panas">Asap Putih pekat terus menerus walau mesin sudah panas</option>
-                            <option value="hitam">Asap Hitam pekat saat mesin digas</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>2. Kondisi & Volume Oli Mesin (Cek via Dipstick):</label>
-                        <select id="q_oli">
-                            <option value="normal">Normal (Cukup, warna kuning/kecoklatan wajar)</option>
-                            <option value="hitam_habis">Hitam pekat & Volume sangat menyusut (Habis)</option>
-                            <option value="putih_susu">Warna Putih Susu / Kopi Susu (Terlihat seperti lumpur cair)
-                            </option>
-                            <option value="gram_besi">Terdapat banyak serpihan logam/gram besi mengkilap</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>3. Apakah ada Suara Abnormal pada area Mesin / Transmisi?</label>
-                        <select id="q_suara">
-                            <option value="normal">Suara halus, getaran normal</option>
-                            <option value="head_ngetrik">Suara "Tik-tik-tik" / "Ngetrik" beraturan di area head silinder
-                                (depan/atas)</option>
-                            <option value="tengah_kasar">Suara "Klotok-klotok" kasar / ketukan berat di bagian tengah
-                                mesin</option>
-                            <option value="cvt_kasar">Suara mendengung / kemrosok di area box CVT (Motor Matic) atau
-                                Rantai (Manual)</option>
-                        </select>
-                    </div>
-
-                    <div class="flex-group">
-                        <div class="form-group" style="margin-bottom:0">
-                            <label>4a. Skala Brebet / Tersendat:</label>
-                            <input type="range" id="q_brebet_skala" min="0" max="100" value="0"
-                                oninput="document.getElementById('valB').innerText = this.value + '%'">
-                            <span id="valB"
-                                style="font-weight:bold; color:#dd9a00; display: flex; justify-content: end; align-items: end;">0%</span>
+        <div id="tab-diagnosis" class="tab-page active">
+            <div id="mainView">
+                <div class="hero"><span class="hero-icon">🔍</span>
+                    <h2>Sistem Diagnosis Kendaraan Ringan</h2>
+                    <p>Jawab pertanyaan teknis di bawah ini dengan akurat. Mesin inferensi kami akan menganalisis
+                        gejala, menghitung persentase kerusakan, dan mengkategorikan tingkat keparahan (Ringan, Sedang,
+                        Berat) berdasarkan data mekanika standar.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header">Data Observasi Kendaraan</div>
+                    <div class="card-body">
+                        <div class="form-group"><label>1. Observasi Asap Knalpot (Emisi Gas Buang):</label><select
+                                id="q_asap">
+                                <option value="normal">Normal (Transparan / Tidak ada asap tebal)</option>
+                                <option value="putih_dingin">Asap Putih tipis hanya saat mesin dingin (Pagi hari)
+                                </option>
+                                <option value="putih_panas">Asap Putih pekat terus menerus walau mesin sudah panas
+                                </option>
+                                <option value="hitam">Asap Hitam pekat saat mesin digas</option>
+                            </select></div>
+                        <div class="form-group"><label>2. Kondisi & Volume Oli Mesin (Cek via Dipstick):</label><select
+                                id="q_oli">
+                                <option value="normal">Normal (Cukup, warna kuning/kecoklatan wajar)</option>
+                                <option value="hitam_habis">Hitam pekat & Volume sangat menyusut (Habis)</option>
+                                <option value="putih_susu">Warna Putih Susu / Kopi Susu (Terlihat seperti lumpur cair)
+                                </option>
+                                <option value="gram_besi">Terdapat banyak serpihan logam/gram besi mengkilap</option>
+                            </select></div>
+                        <div class="form-group"><label>3. Apakah ada Suara Abnormal pada area Mesin /
+                                Transmisi?</label><select id="q_suara">
+                                <option value="normal">Suara halus, getaran normal</option>
+                                <option value="head_ngetrik">Suara "Tik-tik-tik" / "Ngetrik" beraturan di area head
+                                    silinder</option>
+                                <option value="tengah_kasar">Suara "Klotok-klotok" kasar di bagian tengah mesin</option>
+                                <option value="cvt_kasar">Suara mendengung / kemrosok di area box CVT atau Rantai
+                                </option>
+                            </select></div>
+                        <div class="flex-group">
+                            <div class="form-group" style="margin-bottom:0"><label>4a. Skala Brebet /
+                                    Tersendat:</label><input type="range" id="q_brebet_skala" min="0" max="100"
+                                    value="0" oninput="document.getElementById('valB').innerText=this.value+'%'"><span
+                                    id="valB"
+                                    style="font-weight:bold;color:#dd9a00;display:flex;justify-content:end">0%</span>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0"><label>4b. Kapan brebet paling
+                                    terasa?</label><select id="q_brebet_waktu">
+                                    <option value="none">Tidak brebet</option>
+                                    <option value="awal">Saat tarikan awal (Gas baru dibuka)</option>
+                                    <option value="atas">Saat putaran tinggi / top speed tertahan</option>
+                                    <option value="dingin">Hanya saat mesin masih dingin</option>
+                                </select></div>
                         </div>
-                        <div class="form-group" style="margin-bottom:0">
-                            <label>4b. Kapan brebet paling terasa?</label>
-                            <select id="q_brebet_waktu">
-                                <option value="none">Tidak brebet</option>
-                                <option value="awal">Saat tarikan awal (Gas baru dibuka)</option>
-                                <option value="atas">Saat putaran tinggi / top speed tertahan</option>
-                                <option value="dingin">Hanya saat mesin masih dingin</option>
-                            </select>
-                        </div>
+                        <div class="form-group"><label>5. Kestabilan & Kaki-kaki (Handling):</label><select
+                                id="q_handling">
+                                <option value="normal">Normal, nyaman digunakan bermanuver</option>
+                                <option value="oleng_stang">Stang terasa berat / membuang ke satu sisi / oblak saat
+                                    direm</option>
+                                <option value="belakang_goyang">Bodi belakang terasa geol / goyang saat menikung
+                                </option>
+                                <option value="jedug">Suspensi sering mentok (bunyi jedug) walau jalan tidak terlalu
+                                    rusak</option>
+                            </select></div>
+                        <div class="form-group"><label>6. Sistem Kelistrikan & Starter:</label><select id="q_listrik">
+                                <option value="normal">Starter lancar, lampu terang stabil</option>
+                                <option value="starter_berat">Starter elektrik berat / hanya bunyi cetek, tapi
+                                    kick-starter bisa</option>
+                                <option value="lampu_putus">Lampu sering putus tiba-tiba / sangat redup lalu terang
+                                    berlebihan saat digas</option>
+                                <option value="mati_total">Speedometer mati total, klakson mati, tidak ada arus sama
+                                    sekali</option>
+                            </select></div>
+                        <button class="btn-analyze" onclick="processDiagnosis()">Mulai Analisis Sistem</button>
                     </div>
-
-                    <div class="form-group">
-                        <label>5. Kestabilan & Kaki-kaki (Handling):</label>
-                        <select id="q_handling">
-                            <option value="normal">Normal, nyaman digunakan bermanuver</option>
-                            <option value="oleng_stang">Stang terasa berat / membuang ke satu sisi / oblak saat direm
-                            </option>
-                            <option value="belakang_goyang">Bodi belakang terasa geol / goyang saat menikung</option>
-                            <option value="jedug">Suspensi sering mentok (bunyi jedug) walau jalan tidak terlalu rusak
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>6. Sistem Kelistrikan & Starter:</label>
-                        <select id="q_listrik">
-                            <option value="normal">Starter lancar, lampu terang stabil</option>
-                            <option value="starter_berat">Starter elektrik berat / hanya bunyi cetek, tapi kick-starter
-                                bisa</option>
-                            <option value="lampu_putus">Lampu sering putus tiba-tiba / sangat redup lalu terang
-                                berlebihan saat digas</option>
-                            <option value="mati_total">Speedometer mati total, klakson mati, tidak ada arus sama sekali
-                            </option>
-                        </select>
-                    </div>
-
-                    <button class="btn-analyze" onclick="processDiagnosis()">Mulai Analisis Sistem</button>
                 </div>
             </div>
+            <section id="resultSection">
+                <h3 class="section-title">Laporan Analisis Kerusakan</h3>
+                <div class="results-grid" id="resultsGrid"></div>
+            </section>
+            <section id="solutionView">
+                <div class="sol-header"><span class="back-link" onclick="backToMain()">← Kembali ke Laporan</span><br>
+                    <div id="sol_badge" class="severity-badge">Tingkat: -</div>
+                    <h2 id="sol_title">Judul Komponen</h2>
+                    <p>Tingkat Keyakinan: <span id="sol_perc">0%</span></p>
+                </div>
+                <div class="sol-grid">
+                    <div class="sol-main">
+                        <div id="warnB" class="warning-box hidden">
+                            <h4>⚠️ TINDAKAN DARURAT</h4>
+                            <p>Kerusakan ini tergolong berat. Sangat disarankan untuk segera membawa kendaraan ke
+                                bengkel profesional sebelum terjadi kerusakan permanen.</p>
+                        </div>
+                        <h3>Analisis Teknis</h3>
+                        <div id="sol_desc"></div>
+                        <h3 style="margin-top:30px">Langkah Perbaikan</h3>
+                        <div id="sol_steps"></div>
+                    </div>
+                    <div class="sol-sidebar">
+                        <h4>Komponen Terkait</h4>
+                        <ul id="sol_parts"></ul>
+                    </div>
+                </div>
+            </section>
         </div>
-
-        <!-- SEKSI HASIL DIAGNOSIS -->
-        <section id="resultSection">
-            <h3 class="section-title">Laporan Analisis Kerusakan</h3>
-            <div class="results-grid" id="resultsGrid"></div>
-        </section>
-
-        <!-- TAMPILAN DETAIL SOLUSI -->
-        <section id="solutionView">
-            <div class="sol-header">
-                <span class="back-link" onclick="backToMain()">← Kembali ke Laporan</span><br>
-                <div id="sol_badge" class="severity-badge">Tingkat: -</div>
-                <h2 id="sol_title">Judul Komponen</h2>
-                <p>Tingkat Keyakinan: <span id="sol_perc">0%</span></p>
+        <div id="tab-panduan" class="tab-page">
+            <div class="hero"><span class="hero-icon">🔧</span>
+                <h2>Panduan Perbaikan Step-by-Step</h2>
+                <p>Panduan rinci untuk perawatan dan perbaikan kendaraan ringan yang bisa Anda lakukan sendiri.
+                    Dilengkapi estimasi waktu, alat yang dibutuhkan, dan tips keselamatan.</p>
             </div>
-
-            <div class="sol-grid">
-                <div class="sol-main">
-                    <div id="warnB" class="warning-box hidden">
-                        <h4>⚠️ TINDAKAN DARURAT</h4>
-                        <p>Kerusakan ini tergolong berat. Sangat disarankan untuk segera membawa kendaraan ke bengkel
-                            profesional sebelum terjadi kerusakan permanen.</p>
-                    </div>
-                    <h3>Analisis Teknis</h3>
-                    <div id="sol_desc"></div>
-
-                    <h3 style="margin-top:30px">Langkah Perbaikan</h3>
-                    <div id="sol_steps"></div>
-                </div>
-
-                <div class="sol-sidebar">
-                    <h4>Komponen Terkait</h4>
-                    <ul id="sol_parts"></ul>
-                </div>
+            <div id="guidesList" class="guides-grid"></div>
+            <div id="guideDetail" class="guide-detail"></div>
+        </div>
+        <div id="tab-perawatan" class="tab-page">
+            <div class="hero"><span class="hero-icon">📅</span>
+                <h2>Jadwal Perawatan Rutin Kendaraan</h2>
+                <p>Ikuti jadwal perawatan berkala berdasarkan interval kilometer untuk menjaga performa kendaraan tetap
+                    optimal dan mencegah kerusakan dini.</p>
             </div>
-        </section>
+            <div id="maintenanceTimeline" class="timeline"></div>
+        </div>
+        <div id="tab-tips" class="tab-page">
+            <div class="hero"><span class="hero-icon">💡</span>
+                <h2>Tips & Fakta Otomotif</h2>
+                <p>Informasi praktis seputar otomotif yang wajib diketahui setiap pengendara untuk keselamatan dan
+                    efisiensi berkendara.</p>
+            </div>
+            <div id="tipsGrid" class="tips-grid"></div>
+        </div>
+        <div id="tab-edukasi" class="tab-page">
+            <div class="hero"><span class="hero-icon">📚</span>
+                <h2>Kamus Istilah Otomotif</h2>
+                <p>Pelajari istilah-istilah teknis pada kendaraan untuk memperluas wawasan mekanika Anda.</p>
+            </div>
+            <div id="kamusGrid" class="kamus-grid"></div>
+        </div>
     </main>
-
+    <footer>
+        <p style="font-size:16px;color:#dd9a00;font-weight:700;margin-bottom:8px">MOTOEXPERT PRO</p>
+        <p>Sistem Pakar Diagnosis Kendaraan Ringan</p>
+        <p class="disclaimer">⚠️ Disclaimer: Informasi pada website ini bersifat edukatif dan bukan pengganti konsultasi
+            dengan mekanik profesional. Selalu utamakan keselamatan saat melakukan perawatan kendaraan.</p>
+    </footer>
     <script>
-        // DATA PENGETAHUAN (KNOWLEDGE BASE) - Memastikan kunci konsisten
-        const knowledge = {
-            mesinAtas: {
-                title: "Area Mesin Atas (Cylinder Head & Kompresi)",
-                parts: ["Ring Piston / Seher", "Seal Klep (Valve)", "Gasket / Paking Head", "Noken As (Camshaft)", "Rantai Keteng"],
-                analysis: {
-                    putih_panas: "Terdeteksi pembakaran oli di ruang bakar secara persisten. Ini adalah fakta empiris keausan pada Ring Piston atau dinding silinder (Boring) baret.",
-                    putih_dingin: "Oli merembes ke ruang bakar saat mesin mati. Gejala spesifik dari Seal Klep yang sudah mengeras atau getas.",
-                    head_ngetrik: "Suara 'ngetrik' beraturan menandakan celah klep terlalu longgar (butuh stel klep) atau Rantai Keteng (Cam chain) sudah kendor/aus.",
-                    putih_susu: "Warna oli putih susu adalah tanda fatal bahwa Air Radiator (Coolant) bocor menembus ruang oli. Paking Head atau Seal Waterpump jebol."
-                },
-                solutions: [
-                    "Kuras oli mesin dan radiator (jika ada) untuk menghentikan kontaminasi lanjutan.",
-                    "Bongkar Cylinder Head: Cek celah klep, kondisi seal klep, dan kelenturan rantai keteng.",
-                    "Bongkar Block Silinder: Ukur keausan ring piston dan cek apakah ada baret pada dinding liner silinder.",
-                    "Ganti gasket/paking head dengan yang baru."
-                ]
-            },
-            mesinBawah: {
-                title: "Area Mesin Bawah (Crankcase & Pelumasan)",
-                parts: ["Kruk As (Crankshaft)", "Stang Seher (Connecting Rod)", "Bearing Kruk As", "Pompa Oli"],
-                analysis: {
-                    gram_besi: "Kehadiran gram besi mengkilap pada oli mengindikasikan gesekan ekstrem antar logam. Pelumasan gagal beroperasi dengan baik.",
-                    tengah_kasar: "Suara ketukan berat di tengah blok mesin (knocking) menandakan Stang Seher (Connecting Rod) kocak atau Bearing Kruk As hancur/aus."
-                },
-                solutions: [
-                    "Wajib lakukan Turun Mesin Total (Overhaul) untuk membelah Crankcase.",
-                    "Cek kondisi kruk as di bengkel bubut. Jika stang seher kocak, ganti stang seher set.",
-                    "Ganti seluruh bearing mesin bawah (Klaher kruk as) dengan original.",
-                    "Bersihkan saluran pompa oli."
-                ]
-            },
-            sistemBakar: {
-                title: "Sistem Pembakaran & Pengabutan Bahan Bakar",
-                parts: ["Injektor / Karburator", "Busi (Spark Plug)", "Filter Udara", "Fuel Pump", "Throttle Body"],
-                analysis: {
-                    hitam: "Asap knalpot hitam pekat mengindikasikan campuran bahan bakar terlalu kaya (Rich Mixture).",
-                    atas: "Brebet di putaran atas umumnya disebabkan suplai BBM telat. Sering merujuk pada tekanan Fuel Pump yang lemah.",
-                    awal: "Brebet tarikan awal sering terkait dengan Injektor kotor atau busi setengah mati."
-                },
-                solutions: [
-                    "Cek kondisi fisik Busi. Ganti jika elektroda habis.",
-                    "Bersihkan Throttle Body / Karburator menggunakan cairan Intake Cleaner.",
-                    "Ukur tekanan Fuel Pump menggunakan Pressure Gauge (Standar ~42 psi).",
-                    "Ganti Filter Udara jika sudah sangat kotor."
-                ]
-            },
-            transmisi: {
-                title: "Sistem Transmisi (CVT / Rantai)",
-                parts: ["V-Belt / Rantai Roda", "Roller & Pulley", "Kampas Ganda", "Bearing Gearbox"],
-                analysis: {
-                    cvt_kasar: "Suara kemrosok pada area transmisi menandakan komponen penggerak aus atau bearing gearbox pecah."
-                },
-                solutions: [
-                    "Bongkar blok CVT/Transmisi. Lakukan pembersihan debu sisa gesekan.",
-                    "Cek V-Belt (apakah ada retakan) dan periksa bentuk Roller.",
-                    "Cek bearing gearbox rasio. Jika oblak, ganti segera."
-                ]
-            },
-            kelistrikan: {
-                title: "Sistem Kelistrikan Utama",
-                parts: ["Aki (Baterai)", "Kiprok (Regulator)", "Sepul (Stator)", "Dinamo Starter"],
-                analysis: {
-                    starter_berat: "Voltase Aki di bawah batas wajar (< 12 Volt) atau arang dinamo starter habis.",
-                    lampu_putus: "Kiprok (Regulator) gagal menahan over-voltage dari Sepul, menyebabkan bohlam putus.",
-                    mati_total: "Sekering (Fuse) utama putus akibat korsleting atau jalur kabel massa putus."
-                },
-                solutions: [
-                    "Cek voltase Aki saat mesin mati (Standar 12.4V).",
-                    "Cek sistem pengisian: Saat mesin hidup, voltase di aki harus naik maksimal ke 14.5V.",
-                    "Cek kotak sekering (Fuse Box) dan ganti jika ada yang putus."
-                ]
-            },
-            kakiKaki: {
-                title: "Suspensi, Kemudi & Kaki-kaki",
-                parts: ["Komstir (Steering Cone)", "Bearing Roda", "Shockbreaker", "Bushing Arm"],
-                analysis: {
-                    oleng_stang: "Kemudi berat atau membuang ke satu arah adalah gejala keausan pada pelor Komstir.",
-                    belakang_goyang: "Bodi belakang geol umumnya disebabkan oleh Bushing Swing Arm yang hancur.",
-                    jedug: "Suspensi berbunyi 'jedug' keras menandakan oli shock habis atau seal shock bocor."
-                },
-                solutions: [
-                    "Ganti set Komstir jika stang terasa berat/nyangkut di tengah.",
-                    "Ganti Bearing Roda jika roda terasa goyang saat digerakkan tangan.",
-                    "Lakukan servis shockbreaker (ganti oli & seal)."
-                ]
-            }
-        };
+        // TAB NAVIGATION
+        function switchTab(id) { document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active')); document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active')); document.getElementById('tab-' + id).classList.add('active'); event.target.classList.add('active'); window.scrollTo(0, 0); if (id === 'panduan') renderGuides(); if (id === 'perawatan') renderTimeline(); if (id === 'tips') renderTips(); if (id === 'edukasi') renderKamus(); }
 
+        // KNOWLEDGE BASE
+        const knowledge = { mesinAtas: { title: "Area Mesin Atas (Cylinder Head & Kompresi)", parts: ["Ring Piston / Seher", "Seal Klep (Valve)", "Gasket / Paking Head", "Noken As (Camshaft)", "Rantai Keteng"], analysis: { putih_panas: "Terdeteksi pembakaran oli di ruang bakar secara persisten. Ini adalah fakta empiris keausan pada Ring Piston atau dinding silinder (Boring) baret.", putih_dingin: "Oli merembes ke ruang bakar saat mesin mati. Gejala spesifik dari Seal Klep yang sudah mengeras atau getas.", head_ngetrik: "Suara 'ngetrik' beraturan menandakan celah klep terlalu longgar (butuh stel klep) atau Rantai Keteng (Cam chain) sudah kendor/aus.", putih_susu: "Warna oli putih susu adalah tanda fatal bahwa Air Radiator (Coolant) bocor menembus ruang oli. Paking Head atau Seal Waterpump jebol." }, solutions: ["Kuras oli mesin dan radiator (jika ada) untuk menghentikan kontaminasi lanjutan.", "Bongkar Cylinder Head: Cek celah klep, kondisi seal klep, dan kelenturan rantai keteng.", "Bongkar Block Silinder: Ukur keausan ring piston dan cek apakah ada baret pada dinding liner silinder.", "Ganti gasket/paking head dengan yang baru."] }, mesinBawah: { title: "Area Mesin Bawah (Crankcase & Pelumasan)", parts: ["Kruk As (Crankshaft)", "Stang Seher (Connecting Rod)", "Bearing Kruk As", "Pompa Oli"], analysis: { gram_besi: "Kehadiran gram besi mengkilap pada oli mengindikasikan gesekan ekstrem antar logam. Pelumasan gagal beroperasi dengan baik.", tengah_kasar: "Suara ketukan berat di tengah blok mesin (knocking) menandakan Stang Seher (Connecting Rod) kocak atau Bearing Kruk As hancur/aus." }, solutions: ["Wajib lakukan Turun Mesin Total (Overhaul) untuk membelah Crankcase.", "Cek kondisi kruk as di bengkel bubut. Jika stang seher kocak, ganti stang seher set.", "Ganti seluruh bearing mesin bawah (Klaher kruk as) dengan original.", "Bersihkan saluran pompa oli."] }, sistemBakar: { title: "Sistem Pembakaran & Pengabutan Bahan Bakar", parts: ["Injektor / Karburator", "Busi (Spark Plug)", "Filter Udara", "Fuel Pump", "Throttle Body"], analysis: { hitam: "Asap knalpot hitam pekat mengindikasikan campuran bahan bakar terlalu kaya (Rich Mixture).", atas: "Brebet di putaran atas umumnya disebabkan suplai BBM telat. Sering merujuk pada tekanan Fuel Pump yang lemah.", awal: "Brebet tarikan awal sering terkait dengan Injektor kotor atau busi setengah mati." }, solutions: ["Cek kondisi fisik Busi. Ganti jika elektroda habis.", "Bersihkan Throttle Body / Karburator menggunakan cairan Intake Cleaner.", "Ukur tekanan Fuel Pump menggunakan Pressure Gauge (Standar ~42 psi).", "Ganti Filter Udara jika sudah sangat kotor."] }, transmisi: { title: "Sistem Transmisi (CVT / Rantai)", parts: ["V-Belt / Rantai Roda", "Roller & Pulley", "Kampas Ganda", "Bearing Gearbox"], analysis: { cvt_kasar: "Suara kemrosok pada area transmisi menandakan komponen penggerak aus atau bearing gearbox pecah." }, solutions: ["Bongkar blok CVT/Transmisi. Lakukan pembersihan debu sisa gesekan.", "Cek V-Belt (apakah ada retakan) dan periksa bentuk Roller.", "Cek bearing gearbox rasio. Jika oblak, ganti segera."] }, kelistrikan: { title: "Sistem Kelistrikan Utama", parts: ["Aki (Baterai)", "Kiprok (Regulator)", "Sepul (Stator)", "Dinamo Starter"], analysis: { starter_berat: "Voltase Aki di bawah batas wajar (< 12 Volt) atau arang dinamo starter habis.", lampu_putus: "Kiprok (Regulator) gagal menahan over-voltage dari Sepul, menyebabkan bohlam putus.", mati_total: "Sekering (Fuse) utama putus akibat korsleting atau jalur kabel massa putus." }, solutions: ["Cek voltase Aki saat mesin mati (Standar 12.4V).", "Cek sistem pengisian: Saat mesin hidup, voltase di aki harus naik maksimal ke 14.5V.", "Cek kotak sekering (Fuse Box) dan ganti jika ada yang putus."] }, kakiKaki: { title: "Suspensi, Kemudi & Kaki-kaki", parts: ["Komstir (Steering Cone)", "Bearing Roda", "Shockbreaker", "Bushing Arm"], analysis: { oleng_stang: "Kemudi berat atau membuang ke satu arah adalah gejala keausan pada pelor Komstir.", belakang_goyang: "Bodi belakang geol umumnya disebabkan oleh Bushing Swing Arm yang hancur.", jedug: "Suspensi berbunyi 'jedug' keras menandakan oli shock habis atau seal shock bocor." }, solutions: ["Ganti set Komstir jika stang terasa berat/nyangkut di tengah.", "Ganti Bearing Roda jika roda terasa goyang saat digerakkan tangan.", "Lakukan servis shockbreaker (ganti oli & seal)."] } };
+
+        // DIAGNOSIS
         function processDiagnosis() {
             const inp = {
                 asap: document.getElementById('q_asap').value,
@@ -615,126 +1085,70 @@
                 skala: parseInt(document.getElementById('q_brebet_skala').value),
                 waktu: document.getElementById('q_brebet_waktu').value,
                 handling: document.getElementById('q_handling').value,
-                listrik: document.getElementById('q_listrik').value
-            };
+                listrik: document.getElementById('q_listrik').value };
 
-            // Reset skor awal
-            let scores = { mesinAtas: 0, mesinBawah: 0, sistemBakar: 0, transmisi: 0, kakiKaki: 0, kelistrikan: 0 };
-
-            // LOGIKA INFERENSI (Sesuai dengan value di HTML)
-            if (inp.asap === 'putih_panas') scores.mesinAtas += 80;
-            if (inp.asap === 'putih_dingin') scores.mesinAtas += 45;
-            if (inp.asap === 'hitam') scores.sistemBakar += 70;
-
-            if (inp.oli === 'hitam_habis') { scores.mesinAtas += 40; scores.mesinBawah += 30; }
-            if (inp.oli === 'putih_susu') scores.mesinAtas += 95;
-            if (inp.oli === 'gram_besi') scores.mesinBawah += 95;
-
-            if (inp.suara === 'head_ngetrik') scores.mesinAtas += 75;
-            if (inp.suara === 'tengah_kasar') scores.mesinBawah += 85;
-            if (inp.suara === 'cvt_kasar') scores.transmisi += 85;
-
-            if (inp.skala > 0) {
-                scores.sistemBakar += (inp.skala * 0.9);
-            }
-
-            if (inp.handling !== 'normal') scores.kakiKaki += 85;
-            if (inp.listrik !== 'normal') scores.kelistrikan += 85;
-
-            // Memetakan skor ke data Knowledge Base
-            const sortedResults = Object.entries(scores)
-                .map(([id, s]) => ({ id, ...knowledge[id], score: Math.min(Math.round(s), 100) }))
-                .filter(x => x.score > 0)
-                .sort((a, b) => b.score - a.score);
-
-            renderResults(sortedResults, inp);
-        }
+                let scores = { mesinAtas: 0, mesinBawah: 0, sistemBakar: 0, transmisi: 0, kakiKaki: 0, kelistrikan: 0 };
+                if (inp.asap === 'putih_panas') scores.mesinAtas += 80;
+                if (inp.asap === 'putih_dingin') scores.mesinAtas += 45;
+                if (inp.asap === 'hitam') scores.sistemBakar += 70;
+                if (inp.oli === 'hitam_habis') { scores.mesinAtas += 40; scores.mesinBawah += 30 }
+                if (inp.oli === 'putih_susu') scores.mesinAtas += 95;
+                if (inp.oli === 'gram_besi') scores.mesinBawah += 95;
+                if (inp.suara === 'head_ngetrik') scores.mesinAtas += 75;
+                if (inp.suara === 'tengah_kasar') scores.mesinBawah += 85;
+                if (inp.suara === 'cvt_kasar') scores.transmisi += 85;
+                if (inp.skala > 0) scores.sistemBakar += (inp.skala * 0.9);
+                if (inp.handling !== 'normal') scores.kakiKaki += 85;
+                if (inp.listrik !== 'normal') scores.kelistrikan += 85;
+                const sorted = Object.entries(scores).map(([id, s]) => ({ id, ...knowledge[id], score: Math.min(Math.round(s), 100) })).filter(x => x.score > 0).sort((a, b) => b.score - a.score); renderResults(sorted, inp); }
 
         function renderResults(data, inp) {
-            const grid = document.getElementById('resultsGrid');
-            grid.innerHTML = '';
-            document.getElementById('resultSection').style.display = 'block';
+            const grid = document.getElementById('resultsGrid'); grid.innerHTML = '';
+            document.getElementById('resultSection').style.display = 'block'; data.forEach(item => { let color = '#94a3b8';
+            if (item.score >= 40) color = '#f59e0b';
+            if (item.score >= 75) color = '#ef4444'; grid.innerHTML += `<div class="result-card"><div class="result-info"><h4>${item.title}</h4><span style="font-size:20px;font-weight:800;color:${color}">${item.score}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${item.score}%;background:${color}"></div></div><button class="btn-detail" onclick="showDetail('${item.id}',${item.score},'${JSON.stringify(inp).replace(/"/g, '&quot;')}')">LIHAT DETAIL SOLUSI</button></div>`; }); window.scrollTo({ top: document.getElementById('resultSection').offsetTop - 100, behavior: 'smooth' }); }
+        function showDetail(id, score, jsonInp) { const inputs = JSON.parse(jsonInp); const data = knowledge[id]; document.getElementById('mainView').style.display = 'none'; document.getElementById('resultSection').style.display = 'none'; document.getElementById('solutionView').style.display = 'block'; document.getElementById('sol_title').innerText = data.title; document.getElementById('sol_perc').innerText = score + '%'; let descHtml = ''; const userAnswers = Object.values(inputs); for (const [key, msg] of Object.entries(data.analysis)) { if (userAnswers.includes(key) || (id === 'sistemBakar' && inputs.waktu === key)) { descHtml += `<p style="margin-bottom:10px;">• ${msg}</p>`; } } if (descHtml === '') descHtml = "<p>Berdasarkan skala keluhan yang Anda berikan, sistem mendeteksi adanya keausan pada komponen terkait di area ini.</p>"; document.getElementById('sol_desc').innerHTML = descHtml; document.getElementById('sol_steps').innerHTML = data.solutions.map(s => `<li style="margin-bottom:8px;font-size:14px;margin-left:15px">${s}</li>`).join(''); document.getElementById('sol_parts').innerHTML = data.parts.map(p => `<li>${p}</li>`).join(''); const badge = document.getElementById('sol_badge'); const warn = document.getElementById('warnB'); warn.classList.add('hidden'); if (score >= 80 || id === 'mesinBawah') { badge.innerText = "Tingkat: Berat / Fatal"; badge.style.background = "#ef4444"; warn.classList.remove('hidden') } else if (score >= 45) { badge.innerText = "Tingkat: Sedang"; badge.style.background = "#f59e0b" } else { badge.innerText = "Tingkat: Ringan"; badge.style.background = "#10b981" } window.scrollTo(0, 0); }
+        function backToMain() { document.getElementById('mainView').style.display = 'block'; document.getElementById('resultSection').style.display = 'block'; document.getElementById('solutionView').style.display = 'none' }
 
-            data.forEach(item => {
-                let color = '#94a3b8';
-                if (item.score >= 40) color = '#f59e0b'; // Oranye
-                if (item.score >= 75) color = '#ef4444'; // Merah
+        // GUIDES
+        const guides = [
+            { id: 'oli',
+            icon: '🛢️',
+            title: 'Ganti Oli Mesin',
+            desc: 'Panduan lengkap mengganti oli mesin kendaraan untuk menjaga pelumasan optimal.',
+            difficulty: 'Mudah',
+            diffClass: 'meta-easy',
+            time: '30 menit',
+            tools: ['Kunci pas/ring', 'Wadah penampung oli bekas', 'Corong', 'Oli baru sesuai spesifikasi', 'Lap/kain'],
+            steps: [{ t: 'Panaskan Mesin Sebentar', d: 'Nyalakan mesin selama 2-3 menit agar oli hangat dan lebih mudah mengalir. Matikan mesin setelahnya.' }, { t: 'Posisikan Kendaraan', d: 'Pastikan kendaraan berdiri di permukaan rata. Gunakan standar tengah untuk motor.' }, { t: 'Letakkan Wadah Penampung', d: 'Tempatkan wadah di bawah baut pembuangan oli (drain bolt) yang terletak di bagian bawah mesin.' }, { t: 'Buka Baut Pembuangan', d: 'Gunakan kunci pas yang sesuai ukuran. Putar berlawanan jarum jam. Hati-hati oli mungkin masih panas.' }, { t: 'Tunggu Oli Habis Mengalir', d: 'Biarkan semua oli lama keluar sampai hanya menetes. Biasanya 5-10 menit.' }, { t: 'Pasang Kembali Baut Drain', d: 'Kencangkan baut dengan tangan dulu, lalu rapatkan dengan kunci. Jangan terlalu kencang agar drat tidak rusak.' }, { t: 'Isi Oli Baru', d: 'Gunakan corong, tuang oli baru melalui lubang pengisian. Isi sesuai kapasitas (cek manual). Contoh: motor matic ±800ml.' }, { t: 'Cek Level dengan Dipstick', d: 'Tutup lubang pengisian, nyalakan mesin 1 menit, matikan, cek level oli dengan dipstick. Pastikan di antara MIN dan MAX.' }],
+            safety: ['Jangan membuang oli bekas sembarangan, bawa ke bengkel untuk didaur ulang.', 'Pastikan mesin mati saat membuka baut drain.', 'Gunakan oli sesuai rekomendasi pabrikan (cek buku manual).'] },
+            { id: 'busi', icon: '⚡', title: 'Cek & Ganti Busi', desc: 'Cara memeriksa kondisi busi dan menggantinya untuk pembakaran optimal.', difficulty: 'Mudah', diffClass: 'meta-easy', time: '20 menit', tools: ['Kunci busi (16mm/21mm)', 'Busi baru', 'Feeler gauge (opsional)', 'Lap bersih'], steps: [{ t: 'Lepas Kabel/Cop Busi', d: 'Cabut cop busi dengan menariknya lurus ke atas. Jangan menarik kabelnya.' }, { t: 'Bersihkan Area Sekitar', d: 'Tiup atau lap area sekitar lubang busi agar kotoran tidak masuk ke ruang bakar.' }, { t: 'Buka Busi Lama', d: 'Masukkan kunci busi, putar berlawanan jarum jam. Keluarkan dan perhatikan kondisinya.' }, { t: 'Baca Kondisi Busi', d: 'Normal: coklat muda. Hitam basah: campuran terlalu kaya/oli bocor. Putih pucat: terlalu panas. Elektroda habis: wajib ganti.' }, { t: 'Atur Gap Busi Baru', d: 'Cek celah elektroda busi baru dengan feeler gauge (standar 0.6-0.8mm).' }, { t: 'Pasang Busi Baru', d: 'Masukkan busi baru dengan tangan terlebih dulu hingga duduk. Kencangkan dengan kunci busi ¼-½ putaran.' }, { t: 'Pasang Cop Busi', d: 'Tekan cop busi hingga terdengar "klik" atau terasa mantap.' }], safety: ['Jangan ganti busi saat mesin panas.', 'Pastikan kunci busi sesuai ukuran.', 'Jangan mengencangkan busi berlebihan (overtorque).'] },
+            { id: 'aki', icon: '🔋', title: 'Cek Sistem Kelistrikan (Aki)', desc: 'Cara memeriksa voltase aki, terminal, dan sistem pengisian daya kendaraan.', difficulty: 'Mudah', diffClass: 'meta-easy', time: '15 menit', tools: ['Multimeter digital', 'Kunci 10mm', 'Sikat kawat kecil', 'Vaselin/grease'], steps: [{ t: 'Akses Posisi Aki', d: 'Buka jok atau cover yang menutupi aki. Lokasi berbeda tiap kendaraan.' }, { t: 'Inspeksi Visual', d: 'Periksa kerak putih/hijau di terminal. Cek kabel apakah keropos atau kendor.' }, { t: 'Ukur Voltase Diam', d: 'Set multimeter ke DC Volt (20V). Probe merah ke (+), hitam ke (-). Standar: 12.4V-12.8V.' }, { t: 'Ukur Voltase Pengisian', d: 'Nyalakan mesin, ukur lagi. Harus naik ke 13.5V-14.5V. Jika tidak, kiprok/sepul bermasalah.' }, { t: 'Bersihkan Terminal', d: 'Lepas kabel (negatif dulu), gosok terminal dengan sikat kawat.' }, { t: 'Olesi Vaselin', d: 'Pasang kembali kabel (positif dulu), olesi vaselin tipis untuk cegah korosi.' }], safety: ['Selalu lepas kabel negatif (-) terlebih dahulu.', 'Jangan kunci logam menyentuh kedua terminal sekaligus.', 'Aki mengandung asam sulfat — gunakan sarung tangan.'] },
+            { id: 'rantai', icon: '⛓️', title: 'Servis Rantai Motor', desc: 'Perawatan rantai motor manual: setting ketegangan, pelumasan, dan kapan harus ganti.', difficulty: 'Sedang', diffClass: 'meta-medium', time: '30 menit', tools: ['Kunci pas 12mm & 14mm', 'Pelumas rantai', 'Penggaris', 'Lap bersih', 'Standar tengah'], steps: [{ t: 'Posisikan Motor di Standar Tengah', d: 'Motor harus di standar tengah agar roda belakang bisa berputar bebas.' }, { t: 'Bersihkan Rantai', d: 'Semprot dengan cairan pembersih atau solar sambil putar roda. Lap bersih.' }, { t: 'Cek Ketegangan', d: 'Tekan rantai di titik tengah. Standar kendor: 20-30mm.' }, { t: 'Kendurkan Mur Roda Belakang', d: 'Kendurkan mur poros roda belakang.' }, { t: 'Atur Adjuster', d: 'Putar baut adjuster di kedua sisi swing arm secara merata.' }, { t: 'Kencangkan Mur Roda', d: 'Setelah ketegangan pas, kencangkan kembali mur poros roda.' }, { t: 'Lumasi Rantai', d: 'Semprot chain lube merata sambil memutar roda. Biarkan meresap 5 menit.' }], safety: ['Jangan setting rantai saat mesin menyala.', 'Rantai terlalu kencang bisa merusak bearing dan sproket.', 'Ganti rantai jika sudah mendekati batas adjuster.'] },
+            { id: 'rem', icon: '🛑', title: 'Inspeksi Sistem Rem', desc: 'Cara memeriksa kampas rem, minyak rem, dan tanda-tanda rem perlu diservis.', difficulty: 'Sedang', diffClass: 'meta-medium', time: '25 menit', tools: ['Kunci pas set', 'Obeng (+)', 'Minyak rem DOT 3/4', 'Senter', 'Lap bersih'], steps: [{ t: 'Inspeksi Kampas Rem Depan', d: 'Lihat melalui celah kaliper. Minimum ketebalan 1.5mm.' }, { t: 'Inspeksi Kampas Rem Belakang', d: 'Tekan tuas rem tromol, jika mentok tapi kurang pakem, kampas tipis.' }, { t: 'Cek Level Minyak Rem', d: 'Periksa tabung reservoir. Level harus antara MIN dan MAX.' }, { t: 'Cek Selang Rem', d: 'Periksa dari pangkal hingga kaliper. Cari retakan atau kebocoran.' }, { t: 'Tes Kelayakan', d: 'Tarik tuas rem — harus terasa padat. Jika lembek, ada angin (perlu bleeding).' }], safety: ['Sistem rem adalah komponen keselamatan kritis.', 'Jangan campur minyak rem berbeda merk tanpa flushing.', 'Minyak rem korosif terhadap cat — segera lap jika tumpah.'] },
+            { id: 'filter', icon: '🌬️', title: 'Perawatan Filter Udara', desc: 'Membersihkan dan mengganti filter udara untuk aliran udara optimal.', difficulty: 'Mudah', diffClass: 'meta-easy', time: '15 menit', tools: ['Obeng (+/-)', 'Kompresor angin (opsional)', 'Filter baru (jika ganti)', 'Lap bersih'], steps: [{ t: 'Buka Cover Filter', d: 'Lepas baut atau klip cover air filter.' }, { t: 'Keluarkan Element Filter', d: 'Cabut filter hati-hati. Jangan kotoran jatuh ke intake.' }, { t: 'Inspeksi Kondisi', d: 'Terawang ke cahaya. Jika tidak tembus, terlalu kotor.' }, { t: 'Bersihkan (Tipe Busa)', d: 'Cuci air sabun ringan, peras perlahan. Keringkan lalu olesi oli tipis.' }, { t: 'Bersihkan (Tipe Kertas)', d: 'Ketuk pelan atau semprot kompresor tekanan rendah dari sisi dalam.' }, { t: 'Pasang Kembali', d: 'Masukkan filter ke posisi semula. Pastikan tidak ada celah.' }], safety: ['Jangan cuci filter tipe kertas dengan air.', 'Pastikan tidak ada benda asing masuk ke intake.', 'Ganti filter setiap 8.000-10.000 km.'] }
+        ];
+        function renderGuides() { const c = document.getElementById('guidesList'), d = document.getElementById('guideDetail'); if (d.classList.contains('active')) return; c.innerHTML = guides.map(g => `<div class="guide-card" onclick="showGuide('${g.id}')"><span class="guide-icon">${g.icon}</span><h3>${g.title}</h3><p>${g.desc}</p><div class="guide-meta"><span class="meta-tag ${g.diffClass}">${g.difficulty}</span><span class="meta-tag meta-time">⏱ ${g.time}</span></div></div>`).join(''); }
+        function showGuide(id) { const g = guides.find(x => x.id === id), c = document.getElementById('guidesList'), d = document.getElementById('guideDetail'); c.style.display = 'none'; d.classList.add('active'); d.innerHTML = `<button class="back-btn" onclick="backToGuides()">← Kembali ke Daftar Panduan</button><div class="guide-detail-header"><span style="font-size:42px;display:block;margin-bottom:10px">${g.icon}</span><h2>${g.title}</h2><div class="guide-meta" style="margin-top:12px"><span class="meta-tag ${g.diffClass}">${g.difficulty}</span><span class="meta-tag meta-time">⏱ ${g.time}</span></div><div class="tools-list">${g.tools.map(t => `<span class="tool-chip">🔩 ${t}</span>`).join('')}</div></div><h3 class="section-title" style="margin-top:10px">Langkah-langkah</h3><div class="step-list">${g.steps.map(s => `<div class="step-item"><h4>${s.t}</h4><p>${s.d}</p></div>`).join('')}</div><div class="safety-box"><h4>⚠️ Tips Keselamatan</h4><ul>${g.safety.map(s => `<li style="font-size:13px;color:#78350f;padding:4px 0;list-style:disc;margin-left:16px">${s}</li>`).join('')}</ul></div>`; window.scrollTo(0, 0); }
+        function backToGuides() { document.getElementById('guidesList').style.display = ''; document.getElementById('guideDetail').classList.remove('active'); document.getElementById('guideDetail').innerHTML = '' }
 
-                grid.innerHTML += `
-                <div class="result-card">
-                    <div class="result-info">
-                        <h4>${item.title}</h4>
-                        <span style="font-size:20px; font-weight:800; color:${color}">${item.score}%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width:${item.score}%; background:${color}"></div>
-                    </div>
-                    <button class="btn-detail" onclick="showDetail('${item.id}', ${item.score}, '${JSON.stringify(inp).replace(/"/g, '&quot;')}')">
-                        LIHAT DETAIL SOLUSI
-                    </button>
-                </div>
-            `;
-            });
-            window.scrollTo({ top: document.getElementById('resultSection').offsetTop - 100, behavior: 'smooth' });
-        }
+        // MAINTENANCE TIMELINE
+        const maintenance = [{ km: '1.000 KM', title: 'Servis Awal', items: ['Ganti oli mesin pertama kali', 'Cek ketegangan rantai/V-belt', 'Cek semua baut dan mur', 'Cek ketinggian minyak rem', 'Inspeksi visual keseluruhan'] }, { km: '5.000 KM', title: 'Servis Ringan Berkala', items: ['Ganti oli mesin', 'Bersihkan filter udara', 'Cek kondisi busi', 'Cek tekanan ban', 'Cek lampu dan klakson', 'Lumasi rantai (motor manual)'] }, { km: '10.000 KM', title: 'Servis Menengah', items: ['Ganti oli mesin & filter oli', 'Ganti busi', 'Bersihkan throttle body/karburator', 'Cek kampas rem depan & belakang', 'Cek level minyak rem', 'Cek ketegangan rantai — ganti jika perlu', 'Setting celah klep'] }, { km: '20.000 KM', title: 'Servis Besar', items: ['Ganti oli mesin, filter oli, filter udara', 'Ganti V-Belt (motor matic)', 'Ganti roller CVT (motor matic)', 'Cek & ganti kampas rem', 'Ganti minyak rem (bleeding)', 'Cek bearing roda depan & belakang', 'Cek sistem kelistrikan', 'Cek kondisi ban'] }, { km: '40.000 KM', title: 'Overhaul Ringan', items: ['Semua item servis 20.000 KM', 'Cek rantai keteng (cam chain)', 'Cek seal klep dan ring piston', 'Cek bearing kruk as', 'Overhaul karburator / bersihkan injektor', 'Ganti selang karet yang getas', 'Cek radiator & coolant'] }];
+        function renderTimeline() { document.getElementById('maintenanceTimeline').innerHTML = maintenance.map(m => `<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><span class="km-badge">${m.km}</span><h3>${m.title}</h3><ul>${m.items.map(i => `<li>${i}</li>`).join('')}</ul></div></div>`).join(''); }
 
-        function showDetail(id, score, jsonInp) {
-            const inputs = JSON.parse(jsonInp);
-            const data = knowledge[id];
+        // TIPS & FACTS
+        const tips = [{ icon: '⛽', title: 'Cara Berkendara Hemat BBM', items: ['Jaga kecepatan konstan 40-60 km/jam', 'Hindari akselerasi mendadak', 'Matikan mesin saat berhenti >30 detik', 'Cek tekanan ban rutin — ban kempes boros 3-5%', 'Kurangi beban barang tidak perlu', 'Servis rutin = pembakaran efisien'] }, { icon: '🔄', title: 'Tanda Ban Harus Diganti', items: ['Indikator TWI sudah rata dengan permukaan', 'Kedalaman alur <1.6mm', 'Ban >4-5 tahun (cek kode DOT)', 'Muncul benjolan — risiko pecah!', 'Aus tidak merata (masalah alignment)', 'Sering kehilangan tekanan tanpa sebab'] }, { icon: '🛢️', title: 'Oli Mineral vs Sintetis', content: '<b>Oli Mineral</b> — murah, ganti tiap ±3.000 km. <b>Semi-Sintetis</b> — cocok harian, ±5.000 km. <b>Full-Sintetis</b> — perlindungan terbaik di suhu ekstrem, tahan ±7.000-10.000 km. Pilih sesuai rekomendasi pabrikan.' }, { icon: '🌡️', title: 'Cara Benar Memanaskan Mesin', content: 'Pada kendaraan injeksi modern, cukup 30-60 detik lalu jalankan pelan. ECU sudah mengatur campuran BBM optimal. Memanaskan terlalu lama (10-15 menit) justru mempercepat kerak karbon. Untuk karburator, panaskan hingga idle stabil (2-3 menit).' }, { icon: '🧠', title: 'Apa Itu ECU?', content: 'ECU (Electronic Control Unit) adalah "otak" kendaraan injeksi. Mengontrol: waktu pengapian, durasi semprotan injektor, idle speed. Membaca data dari sensor O2, TPS, MAP, dan sensor suhu untuk pembakaran sempurna.' }, { icon: '🔦', title: 'Periksa Lampu Kendaraan Rutin', content: 'Lampu bukan hanya untuk melihat jalan, tapi agar ANDA TERLIHAT. Cek rutin: lampu depan, rem, sein, senja. Lampu redup = tanda aki lemah atau kiprok bermasalah. Di Indonesia, lampu utama siang hari untuk motor WAJIB (UU LLAJ).' }];
+        function renderTips() { document.getElementById('tipsGrid').innerHTML = tips.map(t => { let body = ''; if (t.items) body = `<ul>${t.items.map(i => `<li>${i}</li>`).join('')}</ul>`; else body = `<p>${t.content}</p>`; return `<div class="tip-card"><span class="tip-icon">${t.icon}</span><h3>${t.title}</h3>${body}</div>`; }).join(''); }
 
-            // Sembunyikan elemen lain
-            document.getElementById('mainView').style.display = 'none';
-            document.getElementById('resultSection').style.display = 'none';
-            document.getElementById('solutionView').style.display = 'block';
+        // KAMUS
+        const kamusDict = [{ term: 'ECU (Electronic Control Unit)', def: 'Otak komputer pada kendaraan modern yang mengatur durasi injeksi, pengapian, dan fitur kontrol mesin lainnya berdasarkan input dari sensor.' }, { term: 'V-Belt (CVT)', def: 'Sabuk lentur berbahan karet tebal yang berfungsi mentransfer tenaga dari puli depan ke puli belakang pada transmisi matic.' }, { term: 'Overheat', def: 'Kondisi dimana suhu mesin melebihi batas toleransi, sering disebabkan cairan pendingin (coolant) habis atau sistem memampet.' }, { term: 'Busi (Spark Plug)', def: 'Komponen vital pemercik bunga api listrik tegangan tinggi (ribuan volt) untuk memicu ledakan campuran BBM di ruang bakar.' }, { term: 'Kampas Ganda', def: 'Komponen pada CVT yang mekar akibat gaya sentrifugal, lalu menjepit mangkok ganda untuk menyalurkan putaran mesin ke roda.' }, { term: 'Injektor', def: 'Komponen presisi yang mengatur jumlah dan waktu pengabutan bahan bakar dengan menyemprotkannya bertekanan tinggi.' }, { term: 'Throttle Body', def: 'Katup pengatur utama aliran udara pada sistem injeksi (sebagai ganti karburator), terbuka tutup sesuai tarikan gas.' }, { term: 'Kruk As (Crankshaft)', def: 'Poros engkol berbandul di dalam mesin bawah yang mentranslasikan dorongan vertikal dari lengan piston menjadi putaran.' }, { term: 'Kiprok (Regulator/Rectifier)', def: 'Terminal kelistrikan strategis untuk menyearahkan arus AC dari sepul menjadi DC dan memotong lonjakan arus berlebih (+14.5V) ke aki.' }, { term: 'Radiator Coolant', def: 'Cairan penghantar panas berbahan aditif khusus (mengandung ethylene glycol) untuk mencegah mendidih cepat dan melindungi dari karat.' }, { term: 'Cylinder Head', def: 'Kepala ruang bakar mesin dimana mekanisme katup/klep berada. Tempat dimana pencampuran bahan bakar, kompresi, dan pembuangan terjadi.' }, { term: 'Knocking (Ngelitik)', def: 'Suara ketukan logam di dalam mesin karena BBM terbakar dini (detonasi prematur) sebelum busi memercik, sering karena oktan bensin terlalu rendah.' }];
+        function renderKamus(items = kamusDict) { const c = document.getElementById('kamusGrid'); if (!items.length) { c.innerHTML = '<p style="text-align:center; color:#4d4d4d; grid-column:1/-1">Istilah tidak ditemukan.</p>'; return; } c.innerHTML = items.map(k => `<div class="kamus-card"><h4>${k.term}</h4><p>${k.def}</p></div>`).join(''); }
+        function filterKamus() { const q = document.getElementById('searchKamus').value.toLowerCase(); renderKamus(kamusDict.filter(k => k.term.toLowerCase().includes(q) || k.def.toLowerCase().includes(q))); }
 
-            // Isi Data Header
-            document.getElementById('sol_title').innerText = data.title;
-            document.getElementById('sol_perc').innerText = score + '%';
+        // SCROLL REVEAL
+        const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-            // Analisis Gejala (Mencocokkan input user dengan key di knowledge.analysis)
-            let descHtml = '';
-            const userAnswers = Object.values(inputs);
-
-            for (const [key, msg] of Object.entries(data.analysis)) {
-                // Cek jika jawaban user ada dalam kunci analisis
-                if (userAnswers.includes(key) || (id === 'sistemBakar' && inputs.waktu === key)) {
-                    descHtml += `<p style="margin-bottom:10px;">• ${msg}</p>`;
-                }
-            }
-
-            if (descHtml === '') descHtml = "<p>Berdasarkan skala keluhan yang Anda berikan, sistem mendeteksi adanya keausan pada komponen terkait di area ini.</p>";
-            document.getElementById('sol_desc').innerHTML = descHtml;
-
-            // Langkah Perbaikan
-            document.getElementById('sol_steps').innerHTML = data.solutions.map(s => `<li style="margin-bottom:8px; font-size:14px; margin-left:15px">${s}</li>`).join('');
-
-            // Komponen/Suku Cadang
-            document.getElementById('sol_parts').innerHTML = data.parts.map(p => `<li>${p}</li>`).join('');
-
-            // Badge & Warning
-            const badge = document.getElementById('sol_badge');
-            const warn = document.getElementById('warnB');
-            warn.classList.add('hidden');
-
-            if (score >= 80 || id === 'mesinBawah') {
-                badge.innerText = "Tingkat: Berat / Fatal";
-                badge.style.background = "#ef4444";
-                warn.classList.remove('hidden');
-            } else if (score >= 45) {
-                badge.innerText = "Tingkat: Sedang";
-                badge.style.background = "#f59e0b";
-            } else {
-                badge.innerText = "Tingkat: Ringan";
-                badge.style.background = "#10b981";
-            }
-            window.scrollTo(0, 0);
-        }
-
-        function backToMain() {
-            document.getElementById('mainView').style.display = 'block';
-            document.getElementById('resultSection').style.display = 'block';
-            document.getElementById('solutionView').style.display = 'none';
-        }
     </script>
 </body>
 
